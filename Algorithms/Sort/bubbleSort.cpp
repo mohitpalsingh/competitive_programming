@@ -14,15 +14,14 @@ void bubbleSort(int arr[], int n)
 	for (int i = 0; i < n - 1; i++)
 	{
 		swapped = false;
-		for (int j = 0; j < n - 1 - i; j++)
+		if (arr[i] > arr[i + 1])
 		{
-			if (arr[j] > arr[j + 1])
-			{
-				swap(&arr[j], &arr[j + 1]);
-				swapped = true;
-			}
+			swap(&arr[i], &arr[i + 1]);
+			swapped = true;
 		}
-		if (swapped == false)
+		if (swapped == true)
+			bubbleSort(arr, n - 1);
+		else
 			break;
 	}
 }
